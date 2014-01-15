@@ -1,14 +1,14 @@
 package main
 
 import (
-	_ "beeblog/routers"
     "beeblog/controllers"
     "beeblog/models"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
+    _ "beeblog/routers"
+    "github.com/astaxie/beego"
+    "github.com/astaxie/beego/orm"
 )
 
-func init(){
+func init() {
     models.RegisterDB()
 }
 func main() {
@@ -16,6 +16,6 @@ func main() {
     orm.RunSyncdb("default", false, true)
 
     beego.Router("/", &controllers.MainController{})
-	beego.Run()
+    beego.Router("/login", &controllers.LoginController{})
+    beego.Run()
 }
-

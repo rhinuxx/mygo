@@ -4,7 +4,7 @@
  * Author: Rhinux
  * Web: http://www.rhinux.info./
  * Created: 2014-01-13 17:22:00
- * Last-Modified: 2014-01-14 18:47:25
+ * Last-Modified: 2014-01-17 16:45:52
  */
 package controllers
 
@@ -19,6 +19,12 @@ type LoginController struct {
 }
 
 func (this *LoginController) Get() {
+    isExit := this.Input().Get("exit") == "true"
+    if isExit {
+        this.Ctx.SetCookie("uname", "", -1, "/")
+        this.Ctx.SetCookie("pwd", "", -1, "/")
+        this.Redirect("/", 301)
+    }
     this.TplNames = "login.html"
 }
 

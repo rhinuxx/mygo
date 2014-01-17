@@ -7,7 +7,6 @@
           <li {{if .IsTopic}}class="active"{{end}}><a href="/topic">topic</a></li>
         </ul>
 </div>
-
 <div class="pull-right">
     <ul class = "nav navbar-nav">
     {{if .IsLogin}}
